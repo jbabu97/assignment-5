@@ -14,7 +14,7 @@
 </head>
 <body>
     <main class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Peda Ting Ting</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,12 +32,17 @@
           </nav>
 
           <div class="input-group mb-3 w-50 mx-auto search_box">
-            <input id="food_input" type="text" class="form-control" placeholder="Search for meal" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button id="search" class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+            <input id="food_search" type="text" class="form-control" placeholder="Search for meal" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button onclick="foodSearch()" class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
           </div>
 
-          <div>
-              <h1 id="display"></h1>
+          <div id="meal_details" >
+            
+
+          </div>
+
+          <div id="meal_container" class="row">
+            
           </div>
     </main>
     

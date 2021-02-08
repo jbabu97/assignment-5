@@ -1,8 +1,11 @@
-.container{
+body{
     background-color: #e74c3c;
-    height: 100vh;
 }
 
 .search_box{
     margin-top: 100px;
+}
+
+.food_img{
+    /* height: 100px; */
 }

@@ -1,26 +1,41 @@
-const searchButton = document.getElementById('search');
-searchButton.addEventListener('click', () => {
-    const searchInput = document.getElementById('food_input');
-    searchInputValue = searchInput.value;
-    console.log('clicked');
-    document.getElementById('display').innerText = searchInputValue;
-})
+const foodSearch = () => {
+    const searchItems = document.getElementById('food_search').value;
+    console.log(searchItems);
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchItems}`;
 
-function showDetails(name) {
-    fetch(`https://www.themealdb.com/api/json/v1/1/list.php?c=list`)
+    // load data
+    fetch(url)
     .then(res => res.json())
-    .then((data) => {
-        // displayMeal(data);
+    .then(data => {
+        displayMeals(data.meals); 
         console.log(data);
     })
+    
+};
 
-}
+const displayMeals = meals => {
+    const mealContainer = document.getElementById('meal_container')
+    meals.forEach(meal => {
+        const mealDiv = document.createElement('div');
+        mealDiv.className = 'col-4';
+        mealDiv.innerHTML = `
+        <div onclick="getIngredients()" id="single_meal" class= my-2 p-3 bg-info">
+        <img class="img-fluid food_img" src="${meal.strMealThumb}" alt="">
+        <h2 class="text-center">${meal.strMeal}</h2>
+          
+      </>
+        `;
+        mealContainer.appendChild(mealDiv)
 
-showDetails(name)
+        const afterSearch = document.getElementById('food_search').value = '';
 
-const displayMeal = (meals) => {
-    for (let i = 0; i < meals.length; i++) {
-        const meal = meals[i];
-        console.log(meal.strMeal);
-    }
+    });
+};
+
+const getIngredients = ingredient => {
+    const url = `https://www.themealdb.com/api/json/v1/1/list.php?i=${ingredient}`;
+    console.log(url);
+    fetch(url)
+    .then(res => res.json())
+    .then(data => data.meals)
 }
