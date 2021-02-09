@@ -1,5 +1,10 @@
 body{
-    background-color: #e74c3c;
+    /* background-color: #e74c3c; */
+}
+
+.container{
+    min-height: 100vh;
+    background-color: #eb7163;
 }
 
 .search_box{
